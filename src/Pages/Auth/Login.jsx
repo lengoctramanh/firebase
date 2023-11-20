@@ -2,21 +2,28 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-//IMPORT 
+//IMPORT
 import { useDispatch } from "react-redux";
-import { logOut, login, loginFacebook, loginGoogle, sendPasswordResetEmail } from "../../Redux/Auth/authThunk";
-import {createDefaultOptions} from "../../Utils/AnimationUtils"
+import {
+  logOut,
+  login,
+  loginFacebook,
+  loginGoogle,
+  sendPasswordResetEmail,
+} from "../../Redux/Auth/authThunk";
+import { createDefaultOptions } from "../../Utils/AnimationUtils";
 import { JSON } from "../../assets";
 import ButtonSocial from "../../Components/Button/ButtonSocial";
 import { Link } from "react-router-dom";
 const Login = () => {
+  
   const {
     register,
-    formState: { errors },
     handleSubmit,
     watch,
+    formState: { errors },
   } = useForm();
-
+  
   const password = React.useRef({});
   password.current = watch("password");
 
@@ -31,12 +38,12 @@ const Login = () => {
   const handleFacbookLogin = () => {
     dispatch(loginFacebook());
   };
-  const handleSendPasswordResetEmail=()=> {
-dispatch(sendPasswordResetEmail())
-  }
-  const handleLogout=()=> {
-dispatch(logOut())
-  }
+  const handleSendPasswordResetEmail = () => {
+    dispatch(sendPasswordResetEmail());
+  };
+  const handleLogout = () => {
+    dispatch(logOut());
+  };
   return (
     <React.Fragment>
       <form
