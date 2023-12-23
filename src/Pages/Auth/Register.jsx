@@ -42,7 +42,7 @@ const Register = () => {
         </div>
 
         <span style={{ color: "red" }}>
-          {error.displayName?.type === "required" && "Enter your full name!"}
+          {error?.displayName?.type === "required" && "Enter your full name!"}
           {error?.displayName?.type === "maxLength" &&
             "Your full name must not surpassed 15 characters"}
         </span>
@@ -62,7 +62,7 @@ const Register = () => {
         </div>
 
         <span style={{ color: "red" }}>
-          {error.email?.type === "required" && "Enter your email!"}
+          {error?.email?.type === "required" && "Enter your email!"}
           {error?.email?.type === "pattern" && "Your email is invalid!"}
         </span>
 
@@ -79,7 +79,7 @@ const Register = () => {
           />
         </div>
         <span style={{ color: "red" }}>
-          {error.password?.type === "required" && "Enter your password!"}
+          {error?.password?.type === "required" && "Enter your password!"}
         </span>
 
         <div className="input-field">
@@ -101,9 +101,9 @@ const Register = () => {
         </div>
 
         <span style={{ color: "red" }}>
-          {error.passwordConfirm?.type === "required" &&
+          {error?.passwordConfirm?.type === "required" &&
             "Enter your password again!"}
-          {error.passwordConfirm?.type === "validate" && "Do not match!"}
+          {error?.passwordConfirm?.type === "validate" && "Do not match!"}
         </span>
         <input type="submit" className="btn" name="signup" />
       </form>

@@ -16,14 +16,13 @@ import { JSON } from "../../assets";
 import ButtonSocial from "../../Components/Button/ButtonSocial";
 import { Link } from "react-router-dom";
 const Login = () => {
-  
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  
+
   const password = React.useRef({});
   password.current = watch("password");
 
@@ -38,12 +37,12 @@ const Login = () => {
   const handleFacbookLogin = () => {
     dispatch(loginFacebook());
   };
-  const handleSendPasswordResetEmail = () => {
-    dispatch(sendPasswordResetEmail());
-  };
-  const handleLogout = () => {
-    dispatch(logOut());
-  };
+  // const handleSendPasswordResetEmail = () => {
+  //   dispatch(sendPasswordResetEmail());
+  // };
+  // const handleLogout = () => {
+  //   dispatch(logOut());
+  // };
   return (
     <React.Fragment>
       <form
@@ -69,12 +68,15 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="inputField">
+        <div className="input-field">
           <i className="fas fa-user" />
           <input
             {...register("email", {
-              required: true,
-              pattern: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
+              required: "Please enter your email!",
+              pattern: {
+                value:/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
+                message:"Your email is invalid!"
+              }
             })}
             type="email"
             id="email"
@@ -83,26 +85,29 @@ const Login = () => {
           />
         </div>
         <span style={{ color: "red" }}>
-          {errors.email?.type === "required" && "Please enter your full email!"}
-          {errors.email?.type === "pattern" && "Your email is invalid!"}
+          {errors.email && errors.email.message}
         </span>
 
-        <div className="inputField">
+
+
+        <div className="input-field">
           <i className="fas fa-lock" />
           <input
             {...register("password", {
-              required: true,
+              required: "Please enter your password!",
+              pattern: {
+                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                message: "Your password is invalid!",
+              },
             })}
             type="password"
             id="password"
-            placeholder="password"
+            placeholder="Password"
             name="password"
           />
         </div>
         <span style={{ color: "red" }}>
-          {errors.password?.type === "required" &&
-            "Please enter your full password! "}
-          {errors.password?.type && "Your password is invalid!"}
+          {errors.password && errors.password.message}
         </span>
         <input type="submit" name="sign-in" className="btn solid" />
         <p
@@ -120,8 +125,8 @@ const Login = () => {
           </Link>
         </p>
       </form>
-      <button onClick={handleSendPasswordResetEmail}>Reset Password</button>
-      <button onClick={handleLogout}>Log out</button>
+      {/* <button onClick={handleSendPasswordResetEmail}>Reset Password</button>
+      <button onClick={handleLogout}>Log out</button> */}
     </React.Fragment>
   );
 };

@@ -10,7 +10,7 @@ const ContentAuth = ({ onChangePage }) => {
         <div className="panel left-panel">
           <div className="content">
             <h3>Let's started </h3>
-            <p> HAVE YOU HAD ACCOUNT YET? IF NOT,LET'S SIGN UP </p>
+            <p>  Have you had account yet? If not, Let's sign up</p>
             <Button
               className="btn transparent"
               id="sign-up-btn"
@@ -30,7 +30,7 @@ const ContentAuth = ({ onChangePage }) => {
               className="btn transparent"
               id="sign-up-btn"
               onClick={onChangePage}
-              title="Sign Up"
+              title="Sign In"
             />
           </div>
           <div className="image">

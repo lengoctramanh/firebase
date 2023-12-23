@@ -5,13 +5,15 @@ const ButtonSocial = ({ content, optionAnimation, onHandleClick }) => {
   return (
     <React.Fragment>
       <div className="login" onClick={onHandleClick}>
-        <div className="goggle-btn">
+        <div className="google-btn">
           <div className="google-icon-wrapper">
             <Lottie
               {...optionAnimation}
               style={{
-                width: "3rem",
-                height: "3rem",
+                
+                display:"flex",
+                alignItems:"center",
+                justifyContent:"center",
               }}
             />
           </div>

@@ -9,7 +9,7 @@ import store from "../src/Redux/store.jsx"
 import App from "./App.jsx";
 
 // STYLES
-
+import './Styles/index.jsx'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
